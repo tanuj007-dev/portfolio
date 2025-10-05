@@ -31,7 +31,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+  className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4"
         onClick={onClose}
       >
         <motion.div
@@ -39,11 +39,11 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: 20 }}
           transition={{ duration: 0.3 }}
-          className="bg-card border border-border rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+          className="bg-card border border-border rounded-lg w-full max-w-md xs:max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-4xl max-h-[90vh] overflow-y-auto"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
-          <div className="flex items-center justify-between p-6 border-b border-border">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 p-4 sm:p-6 border-b border-border">
             <div>
               <h2 className="text-2xl font-bold text-foreground">{project.title}</h2>
               <p className="text-muted-foreground">{project.category}</p>
@@ -55,7 +55,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
           {/* Image Carousel */}
           <div className="relative">
-            <div className="aspect-video bg-muted overflow-hidden">
+            <div className="aspect-[4/3] sm:aspect-video bg-muted overflow-hidden max-h-60 sm:max-h-96">
               <img
                 src={project.images[currentImageIndex] || "/placeholder.svg"}
                 alt={`${project.title} screenshot ${currentImageIndex + 1}`}
@@ -68,7 +68,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                 <Button
                   variant="secondary"
                   size="icon"
-                  className="absolute left-4 top-1/2 transform -translate-y-1/2"
+                  className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2"
                   onClick={prevImage}
                 >
                   <ChevronLeft className="w-4 h-4" />
@@ -76,14 +76,14 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                 <Button
                   variant="secondary"
                   size="icon"
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2"
+                  className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2"
                   onClick={nextImage}
                 >
                   <ChevronRight className="w-4 h-4" />
                 </Button>
 
                 {/* Image indicators */}
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+                <div className="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
                   {project.images.map((_, index) => (
                     <button
                       key={index}
@@ -99,7 +99,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           </div>
 
           {/* Content */}
-          <div className="p-6">
+          <div className="p-4 sm:p-6">
             <p className="text-muted-foreground mb-6 leading-relaxed">{project.longDescription}</p>
 
             {/* Technologies */}
@@ -115,7 +115,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             </div>
 
             {/* Actions */}
-            <div className="flex gap-3">
+            <div className="flex flex-col xs:flex-row gap-3">
               {project.liveUrl && (
                 <Button onClick={() => window.open(project.liveUrl, "_blank")}>
                   <ExternalLink className="w-4 h-4 mr-2" />

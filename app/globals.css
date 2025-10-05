@@ -7,6 +7,19 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* styles.css */
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+/* For devices smaller than 768px */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+  }
+}
+
 /* Removed invalid fontFamily block. Set font family in tailwind.config.js instead. */
 .poppins-thin {
   font-family: "Poppins", sans-serif;

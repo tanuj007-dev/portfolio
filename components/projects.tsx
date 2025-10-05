@@ -135,8 +135,8 @@ export function Projects() {
   }
 
   return (
-    <section id="projects" className="py-20 bg-card/50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-12 sm:py-20 bg-card/50">
+      <div className="max-w-md xs:max-w-lg sm:max-w-2xl md:max-w-4xl lg:max-w-6xl mx-auto px-2 xs:px-3 sm:px-6 lg:px-8">
         <RevealOnScroll className="text-center mb-16">
           <>
             <h2 className={`  ${merriweather.className}        text-3xl sm:text-4xl font-bold text-foreground mb-4`}>Featured Projects</h2>
@@ -144,6 +144,7 @@ export function Projects() {
               A collection of projects showcasing my expertise in frontend development, design systems, and user
               experience.
             </p>
+            
           </>
         </RevealOnScroll>
 
@@ -164,7 +165,7 @@ export function Projects() {
         </RevealOnScroll>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           <AnimatePresence>
             {filteredProjects.map((project, index) => (
               <div key={project.id}>

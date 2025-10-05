@@ -1,9 +1,9 @@
-"use client"
+
+"use client";
 
 import { motion } from "framer-motion"
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer"
 import type { ReactNode } from "react"
- 
 
 interface RevealOnScrollProps {
   children: ReactNode
@@ -34,7 +34,7 @@ export function RevealOnScroll({
 
   return (
     <motion.div
-      ref={ref}
+  ref={ref as React.Ref<HTMLDivElement>}
       initial={{
         opacity: 0,
         ...directionOffset[direction],

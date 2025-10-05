@@ -35,13 +35,13 @@ export function ProjectCard({ project, onSelect }: ProjectCardProps) {
       onClick={() => onSelect(project)}
     >
       {/* Project Image */}
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 overflow-hidden">
         <OptimizedImage
           src={project.image}
           alt={project.title}
           width={400}
           height={192}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
         />
 
         {/* Overlay */}

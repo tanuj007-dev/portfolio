@@ -1,7 +1,7 @@
-"use client"
+ "use client"
 
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useMemo } from "react"
 import { cn } from "@/lib/utils"
 
 interface OptimizedImageProps {
@@ -28,10 +28,13 @@ export function OptimizedImage({
   const [isLoading, setIsLoading] = useState(true)
   const [hasError, setHasError] = useState(false)
 
-  // Generate a simple blur placeholder if none provided
-  const defaultBlurDataURL = `data:image/svg+xml;base64,${Buffer.from(
-    `<svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#f3f4f6"/></svg>`,
-  ).toString("base64")}`
+  // ✅ Use browser-safe Base64 encoding with useMemo
+  const defaultBlurDataURL = useMemo(() => {
+    const svg = `<svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100%" height="100%" fill="#f3f4f6"/>
+    </svg>`
+    return `data:image/svg+xml;base64,${btoa(svg)}`
+  }, [width, height])
 
   if (hasError) {
     return (
@@ -45,7 +48,10 @@ export function OptimizedImage({
   }
 
   return (
-    <div className={cn("overflow-hidden", className)}>
+    <div
+      className={cn("overflow-hidden", className)}
+      style={{ width: "100%", height: "auto", maxWidth: width, maxHeight: height }}
+    >
       <Image
         src={src || "/placeholder.svg"}
         alt={alt}
@@ -54,7 +60,10 @@ export function OptimizedImage({
         priority={priority}
         placeholder={placeholder}
         blurDataURL={blurDataURL || defaultBlurDataURL}
-        className={cn("transition-all duration-300", isLoading ? "scale-105 blur-sm" : "scale-100 blur-0")}
+        className={cn(
+          "transition-all duration-300 w-full h-auto",
+          isLoading ? "scale-105 blur-sm" : "scale-100 blur-0"
+        )}
         onLoad={() => setIsLoading(false)}
         onError={() => setHasError(true)}
       />

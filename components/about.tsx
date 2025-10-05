@@ -44,8 +44,8 @@ const education = [
 
 export function About() {
   return (
-    <section id="about" className="py-16 sm:py-20 bg-background">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-12 sm:py-16 bg-background">
+      <div className="max-w-md xs:max-w-lg sm:max-w-2xl md:max-w-4xl lg:max-w-6xl mx-auto px-2 xs:px-3 sm:px-6 lg:px-8">
         <RevealOnScroll className="text-center mb-12 sm:mb-16">
           <h2
             className={`${merriweather.className} text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4`}

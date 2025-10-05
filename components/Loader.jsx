@@ -81,13 +81,13 @@ export default function Loader({ onFinish }) {
   }, [onFinish, greetings.length]);
 
   return (
-    <div className="fixed inset-0 bg-black flex flex-col items-center justify-center z-50 space-y-4">
+  <div className="fixed inset-0 bg-black flex flex-col items-center justify-center z-50 space-y-4 px-2">
    
     
 
       {/* Same greeting in Dancing Script (fancy style) */}
       <h2
-        className={`${dancingScript.className} text-white text-7xl transition-opacity duration-200`}
+        className={`${dancingScript.className} text-white text-4xl xs:text-5xl sm:text-6xl md:text-7xl transition-opacity duration-200 text-center`}
         style={{ opacity: fade ? 1 : 0 }}
       >
         {greetings[current]}

@@ -1,4 +1,4 @@
-"use client";
+ "use client";
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -48,7 +48,8 @@ export function Hero() {
   }, [index, isDeleting]);
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+ <section className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-4 sm:px-6 md:px-8 lg:px-12">
+
       {/* Animated background */}
       <div className="absolute inset-0 gradient-bg" />
 
@@ -61,28 +62,28 @@ export function Hero() {
         />
       </div>
 
-      <div className="relative z-10 mt-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
+  <div className="relative z-10 mt-10 sm:mt-16 max-w-xs xs:max-w-sm sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto px-0 sm:px-6 lg:px-8 flex flex-col items-center text-center w-full">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
           {/* ✅ Endless typing effect */}
-          <h1
-            className={`${merriweather.className} text-5xl sm:text-7xl mt-8 font-bold text-foreground mb-4 leading-tight`}
-          >
+        <h1 className={`${merriweather.className} text-2xl sm:text-3xl md:text-4xl lg:text-5xl mt-8 font-bold text-foreground mb-4 leading-tight`}>
+
+
             {displayedText}
             <span className="border-r-2 border-foreground animate-pulse ml-1"></span>
           </h1>
+<p className={`${merriweather.className} text-base sm:text-lg md:text-xl text-muted-foreground mb-6 max-w-md sm:max-w-lg md:max-w-xl mx-auto`}>
 
-          <p
-            className={`${merriweather.className} text-xl sm:text-2xl text-muted-foreground mb-6 max-w-2xl mx-auto`}
-          >
+
             Aspiring Frontend Developer | Crafting responsive, interactive web
             apps with React & Next.js
           </p>
         </motion.div>
-        <div className="flex gap-4">
+<div className="flex flex-wrap justify-center gap-2 xs:gap-4">
+
           <a
             href="https://github.com/tanuj007-dev"
             target="_blank"
@@ -153,7 +154,8 @@ export function Hero() {
           transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
           className="flex justify-center"
         >
-          <div className="relative w-[400px] h-[400px]  sm:w-[500px] sm:h-[500px] lg:w-[600px] lg:h-[600px] mx-auto -translate-y-10 ">
+          <div className="relative w-40 h-40 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[500px] xl:h-[500px] mx-auto -translate-y-6 sm:-translate-y-10">
+
             <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-full animate-pulse" />
             <div className="absolute inset-1 bg-background rounded-full">
               <Image
@@ -171,3 +173,6 @@ export function Hero() {
     </section>
   );
 }
+
+
+ 

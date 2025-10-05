@@ -123,8 +123,8 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 bg-card/50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-12 sm:py-20 bg-card/50">
+      <div className="max-w-md xs:max-w-lg sm:max-w-2xl md:max-w-4xl lg:max-w-6xl mx-auto px-2 xs:px-3 sm:px-6 lg:px-8">
         <RevealOnScroll className="text-center mb-16">
           <h2 className={` ${merriweather.className}  text-3xl sm:text-4xl font-bold text-foreground mb-4`}>Get In Touch</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
@@ -133,7 +133,7 @@ export function Contact() {
           </p>
         </RevealOnScroll>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           {/* Contact Info */}
           <RevealOnScroll direction="left" className="space-y-8">
             <div>
