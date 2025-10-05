@@ -53,7 +53,7 @@ export function About() {
             About Me
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
-            I'm a passionate frontend developer with over 4 years of experience
+            I'm a passionate frontend developer 
             crafting accessible, pixel-perfect digital experiences.
           </p>
         </RevealOnScroll>
